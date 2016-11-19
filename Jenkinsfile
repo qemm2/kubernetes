@@ -14,7 +14,7 @@ checkout scm
 sh ("cd /opt/lamp/dockerfiles/myapp-php ")
 sh ("docker build -t myapp-php .")
 
-#sh ("sudo docker build https://github.com/qemm2/kubernetes.git")
+//sh ("sudo docker build https://github.com/qemm2/kubernetes.git")
  stage 'Run'
 
 // sh("sudo docker run ${imageTag} go test")
