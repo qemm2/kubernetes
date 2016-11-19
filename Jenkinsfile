@@ -11,7 +11,7 @@ checkout scm
 
  stage 'Build image'
 // //sh("docker build -t ${imageTag} .")
-sh ("sudo docker build -t /opt/lamp/dockerfiles/myapp-php/myapp-php .")
+sh ("sudo cd /opt/lamp/dockerfiles/myapp-php && docker build -t myapp-php .")
 
 //sh ("sudo docker build https://github.com/qemm2/kubernetes.git")
  stage 'Run'
