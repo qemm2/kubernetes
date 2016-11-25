@@ -9,18 +9,18 @@ sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build -t myapp-php .")
 
 sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build -t myapp-apache .")
  stage 'Run'
-sh ("kubectl create -f mariadb-controller.yml")
-sh ("kubectl create -f mariadb-service.yml")
+sh ("kubectl create --namespace=staging -f mariadb-controller.yml")
+sh ("kubectl create --namespace=staging -f mariadb-service.yml")
 
 stage 'Create secrets'
 //sh ("base64 -w128 <<< \"secretpassword\"")
-sh ("kubectl create -f myapp-secrets.yml")
-sh ("kubectl create -f myapp-controller.yml")
-sh ("kubectl create -f myapp-service.yml")
+sh ("kubectl create --namespace=staging -f myapp-secrets.yml")
+sh ("kubectl create --namespace=staging -f myapp-controller.yml")
+sh ("kubectl create --namespace=staging -f myapp-service.yml")
 stage 'Myapp service review'
 sh ("kubectl get services myapp-php")
-sh ("kubectl create -f apache-controller.yml")
-sh ("kubectl create -f apache-service.yml")
+sh ("kubectl create --namespace=staging -f apache-controller.yml")
+sh ("kubectl create --namespace=staging -f apache-service.yml")
 
 
 
