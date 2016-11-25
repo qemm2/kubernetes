@@ -11,7 +11,7 @@ sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build -t myapp-apache .")
  stage 'Run'
 sh ("kubectl create --namespace=staging -f mariadb-controller.yml")
 sh ("kubectl create --namespace=staging -f mariadb-service.yml")
-sh ("kubectl delete secrets myapp-secrets")
+//sh ("kubectl delete secrets myapp-secrets")
 stage 'Create secrets'
 //sh ("base64 -w128 <<< \"secretpassword\"")
 sh ("kubectl create -f myapp-secrets.yml")
