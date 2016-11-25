@@ -13,14 +13,25 @@ checkout scm
 // //sh("docker build -t ${imageTag} .")
  sh ("sudo docker build -t https://github.com/qemm2/kubernetes.git")
  stage 'Run'
+sh ("kubectl create -f mariadb-controller.yml)
+sh ("kubectl create -f mariadb-service.yml)
 
-// sh("sudo docker run ${imageTag} go test")
+stage 'Create secrets'
+sh ('base64 -w128 <<< "secretpassword"'
+sh ('kubectl create -f myapp-secrets.yml')
+sh ('kubectl create -f myapp-controller.yml')
+sh ('kubectl create -f myapp-service.yml')
+stage 'Myapp service review'
+sh ('kubectl get services myapp-php')
+sh ('kubectl create -f apache-controller.yml')
+sh ('kubectl create -f apache-service.yml')
+
 
 // stage 'Push image to registry'
 // sh("sudo docker push ${imageTag}")
 
 // stage "Deploy Application"
-// switch (env.BRANCH_NAME) {
+ switch (env.BRANCH_NAME) {
 //   // Roll out to staging
 //   case "staging":
 //       // Change deployed image in staging to the one we just built
