@@ -10,7 +10,7 @@ node {
 checkout scm
 
  stage 'Build image'
- sh ("sudo docker build  https://github.com/qemm2/kubernetes.git")
+// sh ("sudo docker build  https://github.com/qemm2/kubernetes.git")
 sh ("sudo docker build /opt/lamp/dockerfiles/myapp-php .")
 
 sh ("sudo docker build /opt/lamp/dockerfiles/myapp-apache .")
