@@ -35,8 +35,7 @@ sh ("kubectl create -f apache-service.yml")
 	sh ("/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
 
 
-}       break
-
+}
 //   // Roll out to production
 //   case "master":
 //       // Change deployed image in staging to the one we just built
