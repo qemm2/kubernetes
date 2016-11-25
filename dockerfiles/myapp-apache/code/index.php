@@ -1,6 +1,7 @@
 <?php
-
+phpinfo();
 include ("db-config.php");
+
 
 function db_connect_and_select_database($host, $user, $password) {
   $link = mysqli_connect($host, $user, $password);
