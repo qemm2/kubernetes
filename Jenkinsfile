@@ -32,7 +32,7 @@ sh ("kubectl create -f apache-service.yml")
 
  switch (env.BRANCH_NAME) {
    case "staging":
-	sh ("/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
+	sh ("cd /opt/lamp/dockerfiles/myapp-php && /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
 
 
 }
