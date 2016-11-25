@@ -3,7 +3,7 @@ node {
  def project = 'https://github.com/qemm2/kubernetes'
  def imageTag = "https://github.com/qemm2/kubernetes.git"
 checkout scm
-
+sh("kubectl get ns ${env.BRANCH_NAME} || kubectl create ns ${env.BRANCH_NAME}")
  stage 'Build image'
 sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build -t myapp-php .")
 
