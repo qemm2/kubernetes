@@ -30,13 +30,13 @@ sh ("kubectl create -f apache-service.yml")
 
 
 
- switch (env.BRANCH_NAME) {
- Roll out to staging
-   case "staging":
-	sh ("/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
+// switch (env.BRANCH_NAME) {
+// Roll out to staging
+//   case "staging":
+//	sh ("/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
 
 
-       break
+//       break
 
 //   // Roll out to production
 //   case "master":
