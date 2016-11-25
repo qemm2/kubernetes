@@ -10,8 +10,7 @@ node {
 checkout scm
 
  stage 'Build image'
-// //sh("docker build -t ${imageTag} .")
- sh ("sudo docker build -t https://github.com/qemm2/kubernetes.git")
+ sh ("sudo docker build  https://github.com/qemm2/kubernetes.git")
  stage 'Run'
 sh ("kubectl create -f mariadb-controller.yml")
 sh ("kubectl create -f mariadb-service.yml")
