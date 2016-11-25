@@ -31,7 +31,7 @@ sh ('kubectl create -f apache-service.yml')
 // sh("sudo docker push ${imageTag}")
 
 // stage "Deploy Application"
- switch (env.BRANCH_NAME) {
+// switch (env.BRANCH_NAME) {
 //   // Roll out to staging
 //   case "staging":
 //       // Change deployed image in staging to the one we just built
@@ -61,5 +61,5 @@ sh ('kubectl create -f apache-service.yml')
 //       sh("kubectl --namespace=${env.BRANCH_NAME} apply -f k8s/dev/")
 //       echo 'To access your environment run `kubectl proxy`'
 //       echo "Then access your service via http://localhost:8001/api/v1/proxy/namespaces/${env.BRANCH_NAME}/services/${feSvcName}:80/"
-// }
+//}
 }
