@@ -1,16 +1,10 @@
 node {
 
  def project = 'https://github.com/qemm2/kubernetes'
-// def appName = 'gceme'
-// def feSvcName = "${appName}-frontend"
-//modificacion  
-//def imageTag = "gcr.io/${project}/${appName}:${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
-// def imageTag ="${project}/tree/$appName:${env.BRANCH_NAME}"
  def imageTag = "https://github.com/qemm2/kubernetes.git"
 checkout scm
 
  stage 'Build image'
-// sh ("sudo docker build -t  https://github.com/qemm2/kubernetes.git")
 sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build -t myapp-php .")
 
 sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build -t myapp-apache .")
@@ -39,7 +33,6 @@ sh ("kubectl create -f apache-service.yml")
 //   // Roll out to production
 //   case "master":
 //       // Change deployed image in staging to the one we just built
-//       //sh("sed -i.bak 's#gcr.io/cloud-solutions-images/gceme:1.0.0#${imageTag}#' ./k8s/production/*.yaml")
 //       sh("kubectl --namespace=production apply -f k8s/services/")
 //       sh("kubectl --namespace=production apply -f k8s/production/")
 //       sh("echo http://`kubectl --namespace=production get service/${feSvcName} --output=json | jq -r '.status.loadBalancer.ingress[0].ip'` > ${feSvcName}")
