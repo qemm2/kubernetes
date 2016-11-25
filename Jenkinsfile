@@ -13,11 +13,11 @@ checkout scm
 // //sh("docker build -t ${imageTag} .")
  sh ("sudo docker build -t https://github.com/qemm2/kubernetes.git")
  stage 'Run'
-sh ("kubectl create -f mariadb-controller.yml)
+sh ("kubectl create -f mariadb-controller.yml')
 sh ("kubectl create -f mariadb-service.yml)
 
 stage 'Create secrets'
-sh ('base64 -w128 <<< "secretpassword"'
+sh ('base64 -w128 <<< "secretpassword"')
 sh ('kubectl create -f myapp-secrets.yml')
 sh ('kubectl create -f myapp-controller.yml')
 sh ('kubectl create -f myapp-service.yml')
