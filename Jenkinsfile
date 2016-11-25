@@ -29,19 +29,14 @@ sh ("kubectl create -f apache-controller.yml")
 sh ("kubectl create -f apache-service.yml")
 
 
-// stage 'Push image to registry'
-// sh("sudo docker push ${imageTag}")
 
-// stage "Deploy Application"
-// switch (env.BRANCH_NAME) {
-//   // Roll out to staging
-//   case "staging":
-//       // Change deployed image in staging to the one we just built
-//       sh("sed -i.bak 's#gcr.io/cloud-solutions-images/gceme:1.0.0#${imageTag}#' ./k8s/staging/*.yaml")
-//       sh("kubectl --namespace=production apply -f k8s/services/")
-//       sh("kubectl --namespace=production apply -f k8s/staging/")
-//       sh("echo http://`kubectl --namespace=production get service/${feSvcName} --output=json | jq -r '.status.loadBalancer.ingress[0].ip'` > ${feSvcName}")
-//       break
+ switch (env.BRANCH_NAME) {
+ Roll out to staging
+   case "staging":
+	sh ("/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
+
+
+       break
 
 //   // Roll out to production
 //   case "master":
