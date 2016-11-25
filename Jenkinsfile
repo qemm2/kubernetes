@@ -10,10 +10,10 @@ node {
 checkout scm
 
  stage 'Build image'
-// sh ("sudo docker build  https://github.com/qemm2/kubernetes.git")
-sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build myapp-php .")
+// sh ("sudo docker build -t  https://github.com/qemm2/kubernetes.git")
+sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker -t build myapp-php .")
 
-sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build myapp-apache .")
+sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker -t build myapp-apache .")
  stage 'Run'
 sh ("kubectl create -f mariadb-controller.yml")
 sh ("kubectl create -f mariadb-service.yml")
