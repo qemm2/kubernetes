@@ -19,14 +19,14 @@ sh ("kubectl create -f mariadb-controller.yml")
 sh ("kubectl create -f mariadb-service.yml")
 
 stage 'Create secrets'
-sh ('base64 -w128 <<< "secretpassword"')
-sh ('kubectl create -f myapp-secrets.yml')
-sh ('kubectl create -f myapp-controller.yml')
-sh ('kubectl create -f myapp-service.yml')
+sh ("base64 -w128 <<< "secretpassword"")
+sh ("kubectl create -f myapp-secrets.yml")
+sh ("kubectl create -f myapp-controller.yml")
+sh ("kubectl create -f myapp-service.yml")
 stage 'Myapp service review'
-sh ('kubectl get services myapp-php')
-sh ('kubectl create -f apache-controller.yml')
-sh ('kubectl create -f apache-service.yml')
+sh ("kubectl get services myapp-php")
+sh ("kubectl create -f apache-controller.yml")
+sh ("kubectl create -f apache-service.yml")
 
 
 // stage 'Push image to registry'
