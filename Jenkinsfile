@@ -11,9 +11,9 @@ checkout scm
 
  stage 'Build image'
 // sh ("sudo docker build  https://github.com/qemm2/kubernetes.git")
-sh ("sudo cd /opt/lamp/dockerfiles/myapp-php && sudo docker build myapp-php .")
+sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build myapp-php .")
 
-sh ("sudo cd /opt/lamp/dockerfiles/myapp-php && sudo docker build myapp-apache .")
+sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build myapp-apache .")
  stage 'Run'
 sh ("kubectl create -f mariadb-controller.yml")
 sh ("kubectl create -f mariadb-service.yml")
