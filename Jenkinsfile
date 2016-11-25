@@ -14,7 +14,7 @@ sh ("kubectl create --namespace=staging -f mariadb-service.yml")
 sh ("kubectl delete secrets myapp-secrets")
 stage 'Create secrets'
 //sh ("base64 -w128 <<< \"secretpassword\"")
-sh ("kubectl create --namespace=staging -f myapp-secrets.yml")
+sh ("kubectl create -f myapp-secrets.yml")
 sh ("kubectl create --namespace=staging -f myapp-controller.yml")
 sh ("kubectl create --namespace=staging -f myapp-service.yml")
 stage 'Myapp service review'
