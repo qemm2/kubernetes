@@ -1,5 +1,5 @@
 node {
-
+//
  def project = 'https://github.com/qemm2/kubernetes'
  def imageTag = "https://github.com/qemm2/kubernetes.git"
 checkout scm
@@ -25,7 +25,7 @@ sh("kubectl get ns ${env.BRANCH_NAME} || kubectl create ns ${env.BRANCH_NAME}")
 
 
  switch (env.BRANCH_NAME) {
-   case "staging":
+   case "pre":
 	sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
 
 
