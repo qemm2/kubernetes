@@ -29,14 +29,14 @@ node {
 //sh ("kubectl create -f apache-service.yml")
 
 
-stage ' Sonar'
+stage 'Sonar'
  switch (env.BRANCH_NAME) {
  Roll out to staging
    case "pre":
 	sh ("/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
 
 
-//       break
+       break
 
 //   // Roll out to production
 //   case "master":
