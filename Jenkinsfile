@@ -6,34 +6,34 @@ node {
 //modificacion  
 //def imageTag = "gcr.io/${project}/${appName}:${env.BRANCH_NAME}.${env.BUILD_NUMBER}"
 // def imageTag ="${project}/tree/$appName:${env.BRANCH_NAME}"
- def imageTag = "https://github.com/qemm2/kubernetes.git"
-checkout scm
+// def imageTag = "https://github.com/qemm2/kubernetes.git"
+//checkout scm
 
- stage 'Build image'
+// stage 'Build image'
 // sh ("sudo docker build -t  https://github.com/qemm2/kubernetes.git")
-sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build -t myapp-php .")
+//sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build -t myapp-php .")
 
-sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build -t myapp-apache .")
- stage 'Run'
-sh ("kubectl create -f mariadb-controller.yml")
-sh ("kubectl create -f mariadb-service.yml")
+//sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo docker build -t myapp-apache .")
+// stage 'Run'
+//sh ("kubectl create -f mariadb-controller.yml")
+//sh ("kubectl create -f mariadb-service.yml")
 
-stage 'Create secrets'
+//stage 'Create secrets'
 //sh ("base64 -w128 <<< \"secretpassword\"")
-sh ("kubectl create -f myapp-secrets.yml")
-sh ("kubectl create -f myapp-controller.yml")
-sh ("kubectl create -f myapp-service.yml")
-stage 'Myapp service review'
-sh ("kubectl get services myapp-php")
-sh ("kubectl create -f apache-controller.yml")
-sh ("kubectl create -f apache-service.yml")
+//sh ("kubectl create -f myapp-secrets.yml")
+//sh ("kubectl create -f myapp-controller.yml")
+//sh ("kubectl create -f myapp-service.yml")
+//stage 'Myapp service review'
+//sh ("kubectl get services myapp-php")
+//sh ("kubectl create -f apache-controller.yml")
+//sh ("kubectl create -f apache-service.yml")
 
 
-
-// switch (env.BRANCH_NAME) {
-// Roll out to staging
-//   case "staging":
-//	sh ("/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
+stage ' Sonar'
+ switch (env.BRANCH_NAME) {
+ Roll out to staging
+   case "pre":
+	sh ("/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
 
 
 //       break
