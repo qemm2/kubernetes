@@ -31,7 +31,7 @@ node {
 
 stage 'Sonar'
  switch (env.BRANCH_NAME) {
- Roll out to staging
+// Roll out to staging
    case "pre":
 	sh ("/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
 }
