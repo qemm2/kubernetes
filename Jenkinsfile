@@ -33,7 +33,7 @@ stage 'Sonar'
  switch (env.BRANCH_NAME) {
 // Roll out to staging
    case "pre":
-	sh ("cd /opt/lamp/dockerfiles/myapp-php && /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
+	sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
 }
 
 //       break
