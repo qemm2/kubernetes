@@ -1,5 +1,5 @@
 projectKey=org.sonarqube:php-simple-sq-scanner
 serverUrl=http://13.81.214.99:9000
 dashboardUrl=http://13.81.214.99:9000/dashboard/index/org.sonarqube:php-simple-sq-scanner
-ceTaskId=AVidZeoZVvI3UsCcp8jE
-ceTaskUrl=http://13.81.214.99:9000/api/ce/task?id=AVidZeoZVvI3UsCcp8jE
+ceTaskId=AVoDajYJ20mjIo-by9ya
+ceTaskUrl=http://13.81.214.99:9000/api/ce/task?id=AVoDajYJ20mjIo-by9ya
