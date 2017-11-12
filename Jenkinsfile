@@ -25,7 +25,7 @@ sh("kubectl get ns ${env.BRANCH_NAME} || kubectl create ns ${env.BRANCH_NAME}")
 
 
  switch (env.BRANCH_NAME) {
-   case "pre":
+   case "pre2":
 	sh ("cd /opt/kubernetes/dockerfiles/myapp-php && sudo /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
 
 
