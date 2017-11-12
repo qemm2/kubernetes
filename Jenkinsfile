@@ -31,9 +31,9 @@ node {
 
 stage 'Sonar'
  switch (env.BRANCH_NAME) {
-// Roll out to staging
+ Roll out to staging
    case "pre":
-	sh ("cd /opt/lamp/dockerfiles/myapp-php && sudo /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
+	sh ("cd /opt/kubernetes/dockerfiles/myapp-php && sudo /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar/bin/sonar-scanner")
 }
 
 //       break
